@@ -1,0 +1,10 @@
+FROM himankj09/pytorch-cpu-lite:latest
+
+WORKDIR /app
+COPY . /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+RUN mkdir -p /app/data /app/checkpoints /app/logs /app/results
+ENV PYTHONUNBUFFERED=1
+
+CMD ["python", "src/test.py"]
